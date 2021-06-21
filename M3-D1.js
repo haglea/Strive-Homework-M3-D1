@@ -247,12 +247,36 @@ getLargestEvenNumber([2, 3, 4, 8, 0]);
 Create a function to check from two given integers, whether one is positive and another one is negative.
 */
 console.log("   >> EX15 << ");
-
+const checkTwoIntegers = function (a, b) {
+  if ((a > 0 && b < 0) || (a < 0 && b > 0)) {
+    console.log(true);
+    return true;
+  } else {
+    console.log(false);
+    return false;
+  }
+};
+checkTwoIntegers(-2, 2);
 /*
 16)
 
-Create a function to create new string with first 3 characters are in lower case and the others in upper case. If the string length is less than 3 convert all the characters in upper case. 
-
+Create a function to create new string with first 3 characters are in lower case and the others in upper case. 
+If the string length is less than 3 convert all the characters in upper case. 
+*/
+console.log("   >> EX16 << ");
+const createNewString3 = function (string3) {
+  let newString3 = "";
+  if (string3.length < 3) {
+    newString3 = string3.toUpperCase();
+  } else {
+    newString3 =
+      string3.substring(0, 3).toLowerCase() +
+      string3.substring(3).toUpperCase();
+  }
+  console.log(newString3);
+};
+createNewString3("Strive school");
+/*
 17)
 
 Create a function to calculate the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80.
