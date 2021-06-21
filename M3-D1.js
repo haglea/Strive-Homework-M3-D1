@@ -279,7 +279,21 @@ createNewString3("Strive school");
 /*
 17)
 
-Create a function to calculate the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80.
+Create a function to calculate the sum of the two given integers, If the sum is in the range 50..80 
+return 65 other wise return 80.
+*/
+console.log("   >> EX17 << ");
+const calculateSum2 = function (x, y) {
+  if (x + y > 50 && x + y < 80) {
+    console.log("65");
+    return 65;
+  }
+  console.log("80");
+  return 80;
+};
+calculateSum2(23, 15);
+
+/*
 
 18)
 
@@ -296,7 +310,12 @@ this would be a simple "Stefano".
 this would be a "DiegoRiccardo".
 34 has four factors: 1, 2, 17, and 34.
 this would be "34".
+*/
 
+console.log("   >> EX18 << ");
+
+
+/*
 19)
 Create a function that given a phrase returns its acronym, like British Broadcasting Corporation returns BBC
 
