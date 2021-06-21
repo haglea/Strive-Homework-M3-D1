@@ -141,7 +141,12 @@ Create a function to test whether an array of integers of length 2 contains 1 or
 */
 console.log("   >> EX9 << ");
 const testArray = function (arrayInt) {
-  if (arrayInt[0] === 1 || arrayInt[1] === 3) {
+  if (
+    arrayInt[0] === 1 ||
+    arrayInt[0] === 3 ||
+    arrayInt[1] === 1 ||
+    arrayInt[1] === 3
+  ) {
     console.log(true);
     return true;
   } else {
@@ -158,7 +163,21 @@ testArray([2, 3]);
 Create a function to test whether an array of integers of length 2 does not contain 1 or a 3
 */
 console.log("   >> EX10 << ");
-testArray([2, 5]);
+const testArrayNot = function (arrayIntNot) {
+  if (
+    arrayIntNot[0] !== 1 ||
+    arrayIntNot[0] !== 3 ||
+    arrayIntNot[1] !== 1 ||
+    arrayIntNot[1] !== 3
+  ) {
+    console.log(true);
+    return true;
+  } else {
+    console.log(false);
+    return false;
+  }
+};
+testArrayNot([2, 5]);
 
 /*
 11)
@@ -297,7 +316,8 @@ calculateSum2(23, 15);
 
 18)
 
-Create a function to convert a number to a string, the contents of which depend on the number's factors. Follow next example:
+Create a function to convert a number to a string, the contents of which depend on the number's factors. 
+Follow next example:
 
 If the number has 3 as a factor, output 'Diego'.
 If the number has 5 as a factor, output 'Riccardo'.
@@ -313,10 +333,29 @@ this would be "34".
 */
 
 console.log("   >> EX18 << ");
-
+const convertNumberToString = function (number) {
+  if (number % 3 === 0) {
+    console.log("Diego");
+  } else if (number % 5 === 0) {
+    console.log("Riccardo");
+  } else if (number % 7 === 0) {
+    console.log("Stefano");
+  } else console.log(number);
+};
+convertNumberToString(34);
 
 /*
 19)
 Create a function that given a phrase returns its acronym, like British Broadcasting Corporation returns BBC
 
 */
+console.log("   >> EX19 << ");
+const returnAcronym = function (phrase) {
+  let words = phrase.split(" ")
+  let acronym = ""
+  for (i = 0; i < words.length; i++) {
+    acronym += words[i].slice(0, 1)
+  }
+  console.log(acronym)
+}
+returnAcronym("Strive School")
