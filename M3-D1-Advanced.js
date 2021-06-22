@@ -8,6 +8,22 @@ commonly used in the string.
     maxChar("apple 1231111") === "1"
 */
 
+console.log("   >> EX1 Advanced << ");
+const maxChar = function (mostCharacters) {
+  let max = 0;
+  let maxString = "";
+
+  mostCharacters.split("").forEach((char) => {
+    if (mostCharacters.split(char).length > max) {
+      max = mostCharacters.split(char).length;
+      maxString = char;
+    }
+  });
+  console.log(maxString);
+};
+
+maxChar("abcccccccd");
+
 /* 2) ANAGRAMS
 
 Check to see if two provided strings are anagrams of each other.
@@ -20,6 +36,17 @@ or punctuation.  Consider capital letters to be the same as lower case
   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
   anagrams('Hi there', 'Bye there') --> False
 */
+console.log("   >> EX2 Advanced << ");
+const checkAnagrams = function (anagram1, anagram2) {
+  if (
+    anagram1.split("").sort().join("") === anagram2.split("").sort().join("")
+  ) {
+    console.log(true);
+    return true;
+  } else console.log(false);
+  return false;
+};
+checkAnagrams("apple", "appel");
 
 /* 3) ANAGRAMS 2
 
@@ -27,8 +54,22 @@ Given a word and a list of possible anagrams, select the correct sublist.
 
 --- Examples 
 
-    "listen" and a list of candidates like "enlists" "google" "inlets" "banana" the program should return a list containing "inlets".
+    "listen" and a list of candidates like "enlists" "google" "inlets" "banana" 
+    the program should return a list containing "inlets".
 */
+
+console.log("   >> EX3 Advanced << ");
+const listAnagrams = function (wordA, arrayA) {
+  let arrayOfAnagrams = [];
+  arrayA.forEach((word) => {
+    if (checkAnagrams(wordA, word)) {
+      arrayOfAnagrams.push(word);
+    }
+  });
+  console.log(arrayOfAnagrams);
+};
+listAnagrams("listen", ["inlets", "enlists"]);
+
 
 /* 4) PALINDROME
 
@@ -42,7 +83,20 @@ and punctuation in determining if the string is a palindrome.
     palindrome("abba") === true
     palindrome("abcdefg") === false
  */
-
+console.log("   >> EX4 Advanced << ");
+const isPalindrome = function (palindrome1, palindrome2) {
+  if (
+    palindrome1.split(" ").join("").split("").reverse().join("") ===
+    palindrome2.split(" ").join("")
+  ) {
+    console.log(true);
+    return true;
+  } else {
+    console.log(false);
+    return false;
+  }
+};
+isPalindrome("abbca abba", "abba acbba");
 /* 5) REVERSE INT
 
 Given an integer, return an integer that is the reverse
