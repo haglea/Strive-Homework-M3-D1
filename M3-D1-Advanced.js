@@ -70,7 +70,6 @@ const listAnagrams = function (wordA, arrayA) {
 };
 listAnagrams("listen", ["inlets", "enlists"]);
 
-
 /* 4) PALINDROME
 
 Given a string, return true if the string is a palindrome
@@ -110,7 +109,19 @@ ordering of numbers.
     reverseInt(-15) === -51
     reverseInt(-90) === -9
  */
-
+console.log("   >> EX5 Advanced << ");
+const reverseInteger = function (integerR) {
+  if (Number.isInteger(integerR)) {
+    console.log(
+      parseFloat(integerR.toString().split("").reverse().join("")) *
+        Math.sign(integerR)
+    );
+    return parseFloat(
+      integerR.toString().split("").reverse().join("") * Math.sign(integerR)
+    );
+  }
+};
+reverseInteger(-135);
 /* 6) STEPS
 
 Write a function that accepts a positive number N.
@@ -132,7 +143,21 @@ step has spaces on the right hand side!
         '##  '
         '### '
         '####' */
-
+console.log("   >> EX6 Advanced << ");
+const makeSteps = function (N) {
+  for (i = 0; i < N; i++) {
+    let step = "";
+    for (j = 0; j < N; j++) {
+      if (j <= i) {
+        step += "#";
+      } else {
+        step += " ";
+      }
+    }
+    console.log("'" + step + "'");
+  }
+};
+makeSteps(4);
 /* 7) REVERSE STRING
 
 Given a string, return a new string with the reversed
@@ -144,7 +169,12 @@ order of characters
     reverse('hello') === 'olleh'
     reverse('Greetings!') === '!sgniteerG'
  */
-
+console.log("   >> EX7 Advanced << ");
+const reverseString = function (stringRev) {
+  stringRev.split("").reverse().join("");
+  console.log(stringRev.split("").reverse().join(""));
+};
+reverseString("Hello!");
 /* 8) CHUNK
 
 Given an array and chunk size, divide the array into many subarrays
@@ -158,7 +188,16 @@ where each subarray is of length size
     chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
     chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 */
-
+console.log("   >> EX8 Advanced << ");
+const divideSubarrays = function (arrayD, D) {
+  let i = 0;
+  let arrayDNew = [];
+  while (i < arrayD.length) {
+    arrayDNew.push(arrayD.splice(i, D));
+  }
+  console.log(arrayDNew);
+};
+divideSubarrays([2, 4, 7, 6, 8, 9, 3, 10], 3);
 /* 9) PYRAMID
 
 Write a function that accepts a positive number N.
@@ -177,7 +216,19 @@ pyramid has spaces on both the left and right hand sides
         '  #  '
         ' ### '
         '#####' */
-
+console.log("   >> EX9 Advanced << ");
+const makePyramid = function (numberN) {
+  let hash = "#";
+  let space = " ";
+  let pyramid = "";
+  let pyramidSpace = " ";
+  for (i = 0; i < numberN; i++) {
+    pyramid = hash.repeat(2 * i + 1);
+    pyramidSpace = space.repeat(numberN - i - 1);
+    console.log(pyramidSpace + pyramid);
+  }
+};
+makePyramid(4);
 /* 10) SPYRAL MATRIX
 
 Write a function that accepts an integer N
@@ -199,3 +250,50 @@ and returns a NxN spiral matrix.
         [10,  9,  8, 7]]
 
 */
+console.log("   >> EX10 Advanced << ");
+const makeSpiralMatrix = function (intSM) {
+  let mainArraySM = [];
+  for (i = 0; i < intSM; i++) {
+    mainArraySM.push([]);
+  }
+  //console.log(mainArraySM);
+
+  let counter = 1;
+  let startRow = 0;
+  let endRow = intSM - 1;
+  let startColumn = 0;
+  let endColumn = intSM - 1;
+
+  while (startColumn <= endColumn && startRow <= endRow) {
+    //top start row
+    for (let i = startColumn; i <= endColumn; i++) {
+      mainArraySM[startRow][i] = counter;
+      counter++;      
+    } 
+    startRow++;
+    
+    //right end column
+    for (let i = startRow; i <= endRow; i++) {
+      mainArraySM[i][endColumn] = counter;
+      counter++;
+    }
+    endColumn--;
+
+    //bottom end row
+    for (let i = endColumn; i >= startColumn; i--) {
+      mainArraySM[endRow][i] = counter;
+      counter++;
+    }
+    endRow--;
+
+    //left start column
+    for (let i = endRow; i >= startRow; i--) {
+      mainArraySM[i][startColumn] = counter;
+      counter++;
+    }
+    startColumn++;
+  }
+  //console.log(mainArraySM)
+  return mainArraySM
+};
+console.log(makeSpiralMatrix(4));
